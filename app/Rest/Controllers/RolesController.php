@@ -15,16 +15,5 @@ class RolesController extends RestController
      */
     public static $resource = RolesResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = Roles::findOrFail($id);
-        $equipo->delete();
-
-        return $this->respondNoContent();
-    }
-    
+ 
 }

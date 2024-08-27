@@ -15,16 +15,5 @@ class RegistroDetalleVehiculosController extends RestController
      */
     public static $resource = RegistroDettaleVehiculosResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = RegistroDetalleVehiculos::findOrFail($id);
-        $equipo->delete();
 
-        return $this->respondNoContent();
-    }
-    
 }

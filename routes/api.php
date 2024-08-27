@@ -112,4 +112,4 @@ Route::get('/asignacionperifericos_codigo/{codigo}', [AsignacionPerifericosContr
 Route::post('/asignacionperifericos_crear', [AsignacionPerifericosController::class, 'store']);
 Route::get('/asignacionperifericos_show/{id}', [AsignacionPerifericosController::class, 'show']);
 Route::put('/asignacionperifericos_update/{id}', [AsignacionPerifericosController::class, 'update']);
-Route::delete('/asignacionperifericos_destroy/{id}', [AsignacionPerifericosController::class, 'destroy']);
+//Route::delete('/asignacionperifericos_destroy/{id}', [AsignacionPerifericosController::class, 'destroy']);

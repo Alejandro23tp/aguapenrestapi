@@ -177,17 +177,5 @@ class UsuariosController extends RestController
             'status' => $status,
         ]);
     }
-
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = Usuarios::findOrFail($id);
-        $equipo->delete();
-
-        return $this->respondNoContent();
-    }
-    
+   
 }

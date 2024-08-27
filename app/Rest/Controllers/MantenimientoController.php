@@ -15,16 +15,5 @@ class MantenimientoController extends RestController
      */
     public static $resource = MantenimientoResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = Mantenimiento::findOrFail($id);
-        $equipo->delete();
-
-        return $this->respondNoContent();
-    }
     
 }

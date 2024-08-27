@@ -15,16 +15,6 @@ class InventariosController extends RestController
      */
     public static $resource =InventarioResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = Inventario::findOrFail($id);
-        $equipo->delete();
 
-        return $this->respondNoContent();
-    }
     
 }

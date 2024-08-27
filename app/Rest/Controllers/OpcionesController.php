@@ -15,16 +15,6 @@ class OpcionesController extends RestController
      */
     public static $resource = OpcionesResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = Opciones::findOrFail($id);
-        $equipo->delete();
 
-        return $this->respondNoContent();
-    }
     
 }

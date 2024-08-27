@@ -103,17 +103,6 @@ class AsignacionPerifericosController extends RestController
     }
     
 
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        // Buscar el registro por ID y lanzará una excepción si no se encuentra
-        $asignacion = AsignacionPerifericos::findOrFail($id);
-        
-        // Eliminar el registro
-        $asignacion->delete();
-        
-        // Retornar una respuesta 204 No Content
-        return $this->respondNoContent();
-    }
     
 
     /**

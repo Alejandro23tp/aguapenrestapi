@@ -100,16 +100,4 @@ class RegistroController extends RestController
      return response()->json(['error' => 'No se pudo subir la imagen'], 500);
  }
 
- /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = Registro::findOrFail($id);
-        $equipo->delete();
-
-        return $this->respondNoContent();
-    }
-    
 }

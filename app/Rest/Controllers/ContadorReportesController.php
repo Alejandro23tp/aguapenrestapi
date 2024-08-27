@@ -15,16 +15,6 @@ class ContadorReportesController extends RestController
      */
     public static $resource = ContadorReportesResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = ContadorReportes::findOrFail($id);
-        $equipo->delete();
 
-        return $this->respondNoContent();
-    }
     
 }

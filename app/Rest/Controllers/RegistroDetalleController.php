@@ -15,16 +15,4 @@ class RegistroDetalleController extends RestController
      */
     public static $resource = RegistroDetalleResource::class;
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = RegistroDetalle::findOrFail($id);
-        $equipo->delete();
-
-        return $this->respondNoContent();
-    }
-    
 }

@@ -64,17 +64,4 @@ class RegistroAreaController extends RestController
           return response()->json(['data' => $registrosConDetalles]);
       }
 
-      /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(int $id): \Illuminate\Http\Response
-    {
-        $equipo = RegistroArea::findOrFail($id);
-        $equipo->delete();
-
-        return $this->respondNoContent();
-    }
-    
-   
 }
