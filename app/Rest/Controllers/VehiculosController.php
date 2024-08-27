@@ -2,6 +2,7 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\Vehiculos;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\VehiculosResource;
 use Illuminate\Http\Request;
@@ -27,4 +28,17 @@ class VehiculosController extends RestController
                'data' => $products,
            ]);
        }
+
+       /**
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(int $id): \Illuminate\Http\Response
+    {
+        $equipo = Vehiculos::findOrFail($id);
+        $equipo->delete();
+
+        return $this->respondNoContent();
+    }
+    
 }

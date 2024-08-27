@@ -2,6 +2,7 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\Modulos;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\ModulosResource;
 use Illuminate\Support\Facades\DB;
@@ -41,4 +42,17 @@ class ModulosController extends RestController
           'data' => $modulos,
       ]);
    }
+
+   /**
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(int $id): \Illuminate\Http\Response
+    {
+        $equipo = Modulos::findOrFail($id);
+        $equipo->delete();
+
+        return $this->respondNoContent();
+    }
+    
 }

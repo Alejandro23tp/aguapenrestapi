@@ -2,6 +2,7 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\Areas;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\AreasResource;
 use Illuminate\Http\Request;
@@ -35,4 +36,16 @@ class AreasController extends RestController
             ['data' => $countareas],
         );
     }
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(int $id): \Illuminate\Http\Response
+    {
+        $equipo = Areas::findOrFail($id);
+        $equipo->delete();
+
+        return $this->respondNoContent();
+    }
+    
 }

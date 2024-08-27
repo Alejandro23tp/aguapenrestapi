@@ -2,6 +2,8 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\Usuarios;
+use App\Models\UsuariosTrabajadores;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\UsuariosTrabajadoresResource;
 use Illuminate\Http\Request;
@@ -35,4 +37,17 @@ class UsuariosTrabajadoresController extends RestController
              'data' => $usuarios,
          ]);
      }
+
+     /**
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(int $id): \Illuminate\Http\Response
+    {
+        $equipo = UsuariosTrabajadores::findOrFail($id);
+        $equipo->delete();
+
+        return $this->respondNoContent();
+    }
+    
 }

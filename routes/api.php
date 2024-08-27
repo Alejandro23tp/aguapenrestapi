@@ -1,7 +1,9 @@
 <?php
 
 use App\Rest\Controllers\AreasController;
+use App\Rest\Controllers\AsignacionPerifericosController;
 use App\Rest\Controllers\ContadorReportesController;
+use App\Rest\Controllers\EquiposController;
 use App\Rest\Controllers\MenusController;
 use App\Rest\Controllers\ModulosController;
 use App\Rest\Controllers\OpcionesController;
@@ -42,6 +44,9 @@ Rest::resource('modulos', ModulosController::class);
 Rest::resource('menus', MenusController::class);
 Rest::resource('opciones', OpcionesController::class);
 Rest::resource('permisos', PermisosController::class);
+//P2
+Rest::resource('equipos', EquiposController::class);
+Rest::resource('asignacionperifericos', AsignacionPerifericosController::class);
 
 
 Route::post('login', [UserController::class, 'login']);
@@ -94,3 +99,17 @@ Route::post('registros/{id}/imagen', [RegistroController::class, 'subirImagen'])
 
 Route::get('/permisosmenus/{userId}', [PermisosController::class, 'getPermisosByUser']);
 Route::get('/permisosmenus', [PermisosController::class, 'getAllPermisos']);
+
+//EQUIPOS
+Route::get('/equiposprincipales', [EquiposController::class, 'equiposprincipales']);
+Route::get('/equiposperifericos', [EquiposController::class, 'equiposperifericos']);
+Route::post('/ObtenerEquiposId', [EquiposController::class, 'obtenerEquiposxId']);
+
+//ASIGNACION PERIFERICOS
+Route::get('/asignacionperifericos_listarrecursos', [AsignacionPerifericosController::class, 'index']);
+Route::get('/asignacionperifericos_codigo/{codigo}', [AsignacionPerifericosController::class, 'listByCodigo']);
+
+Route::post('/asignacionperifericos_crear', [AsignacionPerifericosController::class, 'store']);
+Route::get('/asignacionperifericos_show/{id}', [AsignacionPerifericosController::class, 'show']);
+Route::put('/asignacionperifericos_update/{id}', [AsignacionPerifericosController::class, 'update']);
+Route::delete('/asignacionperifericos_destroy/{id}', [AsignacionPerifericosController::class, 'destroy']);

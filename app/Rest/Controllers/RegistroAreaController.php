@@ -2,6 +2,7 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\Registro;
 use App\Models\RegistroArea;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\RegistroAreaResource;
@@ -62,5 +63,18 @@ class RegistroAreaController extends RestController
   
           return response()->json(['data' => $registrosConDetalles]);
       }
+
+      /**
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(int $id): \Illuminate\Http\Response
+    {
+        $equipo = RegistroArea::findOrFail($id);
+        $equipo->delete();
+
+        return $this->respondNoContent();
+    }
+    
    
 }
